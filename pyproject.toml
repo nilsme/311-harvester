@@ -1,0 +1,73 @@
+[project]
+name = "311-harvester"
+requires-python = ">=3.9"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+extend-exclude = [
+  ".git",
+  ".venv",
+  "build",
+  "dist",
+  "__pycache__",
+  "notebooks",
+  "data",
+]
+
+[tool.ruff.lint]
+select = [
+  "E",   # pycodestyle errors
+  "F",   # pyflakes
+  "I",   # isort (import sorting)
+  "B",   # flake8-bugbear
+  "UP",  # pyupgrade
+  "SIM", # flake8-simplify
+  "C4",  # flake8-comprehensions
+  "PL",  # Pylint-like rules (subset)
+  "RUF", # Ruff-specific
+]
+ignore = [
+  "E203",  # Black compatibility around slices
+  "E266",  # too many leading '#' (tune as you like)
+]
+per-file-ignores = { "__init__.py" = ["F401"] }
+
+[tool.ruff.lint.isort]
+known-first-party = ["sam"]
+combine-as-imports = true
+
+[tool.ruff.format]
+# Make Ruff the canonical formatter
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+skip-magic-trailing-comma = false
+
+[tool.mypy]
+python_version = "3.9"
+strict = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
+
+[tool.pylint."MASTER"]
+ignore = ["__pycache__", "build", "dist", "docs", "static", "templates"]
+jobs = 0
+
+[tool.pylint."MESSAGES CONTROL"]
+disable = [
+  "missing-class-docstring",
+  "missing-function-docstring",
+  "missing-module-docstring",
+  "too-few-public-methods",
+]
+
+[tool.pylint."REPORTS"]
+output-format = "colorized"
+
+[tool.pylint."BASIC"]
+good-names = ["i", "j", "k", "ex", "Run", "_", "pk", "id"]
+
+[tool.pylint."FORMAT"]
+max-line-length = 100

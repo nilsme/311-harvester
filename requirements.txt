@@ -1,0 +1,15 @@
+# App logic
+requests
+types-requests
+
+# Documentation
+mkdocs
+
+# Code quality tools
+pre-commit
+ruff
+pylint
+mypy
+
+# Security
+bandit

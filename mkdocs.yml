@@ -1,0 +1,6 @@
+site_name: SAM Documentation
+theme:
+  name: readthedocs
+nav:
+  - Overview: index.md
+  - Function Reference: functions.md
